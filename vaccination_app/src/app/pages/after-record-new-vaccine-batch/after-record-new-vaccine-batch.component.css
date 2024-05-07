@@ -1,0 +1,37 @@
+.container {
+    margin-left: 870px;
+    margin-top: -900px;
+    margin-bottom: 40px;
+}
+
+.container p {
+    font-size: 14px; /* Adjust the font size */
+    color: black; /* Adjust the text color */
+}
+
+.link {
+    text-decoration: none; /* Remove underline */
+    color: #2a52be; /* Change link color */
+}
+
+.submit-button{
+    margin-left: 870px;
+    margin-top: 30px;
+    background-color: #6495ED; /* Light blue background */
+    color: white; /* White font color */
+    width: 250px; /* Adjust the width of the button */
+    padding: 10px; /* Add some padding for better appearance */
+    border: none; /* Remove border */
+    cursor: pointer; /* Show pointer cursor on hover */
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    background-color: #002D62; /* Darker blue on hover */
+}
+
+
+.image1{
+    margin-left: -40px;
+    margin-top: -70px;
+}

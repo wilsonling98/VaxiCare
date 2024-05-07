@@ -1,0 +1,32 @@
+<div class="wrapper">
+    <div class="form-wrapperLogin">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <h1>Login.</h1>
+            <div class="register_acc">
+                <span>Don't have an account? <a href="/register">Sign up here</a></span>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <i class="far fa-envelope fa-lg" style="color: #1b1c1d;"></i>
+                </span>
+                <input type="email" placeholder="Email" formControlName="email" required>
+                <span *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').dirty" class="error-message">*Email is required</span>
+            </div>
+            <div class="input-box">
+                <span class="icon" (click)="togglePasswordVisibility()">
+                  <i class="far" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'" [style.color]="showPassword ? '#131415' : '#999'"></i>
+                </span>
+                <input type="{{ showPassword ? 'text' : 'password' }}" id="password" placeholder="Password" formControlName="password" required>
+                <span *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').dirty" class="error-message">*Password is required</span>
+            </div>              
+            <button [disabled]="!isLoginButtonEnabled" [class.disabled] = "!isLoginButtonEnabled" class="submit">Login</button>
+        </form>
+    </div>
+</div>
+<div class="login_pic">
+    <img src="\assets\img\login_sub.png" alt="login">
+</div>
+
+
+        
+

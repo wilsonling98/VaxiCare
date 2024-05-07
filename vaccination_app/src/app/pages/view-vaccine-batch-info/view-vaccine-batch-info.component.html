@@ -1,0 +1,21 @@
+<div class="image1">
+    <img src="\assets\img\ViewRecordVaccine.png" alt="Vaccination1">
+</div>
+<div class="container">
+    <div class="form-container">
+        <h1>{{ vaccineBatch.vaccineName }} Vaccine</h1>
+        <p><a routerLink="/view-vaccine-batch-list" class="link" (click)="viewAllVaccineBatches()">View all vaccines batches</a></p>
+        <div class="info-row">
+            <p><strong>Batch Number:</strong> {{ vaccineBatch.batchNumber }}</p>
+            <p><strong>Vaccine Name:</strong> {{ vaccineBatch.vaccineName }}</p>
+        </div>
+        <div class="info-row">
+            <p><strong>Manufacturing Date:</strong> {{ vaccineBatch.manufacturingDate | date }}</p>
+            <p><strong>Expiry Date:</strong> {{ vaccineBatch.expiryDate | date }}</p>
+        </div>
+        <div class="info-row">
+            <p><strong>Dosing Information: </strong> {{ vaccineBatch.dosingInformation }}</p>
+        </div>
+    </div>
+</div>
+

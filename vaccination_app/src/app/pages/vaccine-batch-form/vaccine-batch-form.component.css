@@ -1,0 +1,130 @@
+.name-container {
+    display: flex;
+    margin-bottom: 20px; /* Add some spacing between the name fields and the next row */
+    margin-left: 850px;
+}
+
+.name-container input[type="text"] {
+    width: 150px; /* Adjust width as needed */
+    border-radius: 5px;
+}
+
+.name-field {
+    flex: 1;
+    margin-right: -250px; /* Add some spacing between the name fields */
+    border-radius: 5px;
+}
+
+.name-field:last-child {
+    margin-right: 0; /* Remove the margin from the last name field */
+}
+
+.dates{
+    display: flex;
+    margin-bottom: 20px; /* Add some spacing between the name fields and the next row */
+    margin-left: 850px;
+    margin-top: 30px;
+}
+
+.expiry {
+    margin-left: 40px;
+}
+
+.dosing {
+    margin-left: 850px;
+    margin-bottom: 50px;
+    margin-top: -10px;
+}
+
+.dosing input[type="text"]{
+    width: 360px;
+    border-radius: 5px;
+    height: 100px;
+}
+
+h1 {
+    margin-left: 850px;
+    margin-top: -850px;
+    margin-bottom: 40px;
+}
+
+p {
+    margin-left: 850px;
+    margin-top: -20px;
+    margin-bottom: 50px;
+}
+
+.link {
+    text-decoration: none; /* Remove underline */
+    color: #2a52be; /* Change link color */
+}
+
+
+.submit-button{
+    margin-left: 950px;
+    margin-top: 30px;
+    background-color: #6495ED; /* Light blue background */
+    color: white; /* White font color */
+    width: 200px; /* Adjust the width of the button */
+    padding: 10px; /* Add some padding for better appearance */
+    border: none; /* Remove border */
+    cursor: pointer; /* Show pointer cursor on hover */
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    background-color: #002D62; /* Darker blue on hover */
+}
+
+
+.image1{
+    margin-left: -100px;
+    margin-top: -150px;
+}
+
+
+.disabled {
+    opacity: 0.6;
+    cursor:not-allowed;
+}
+
+
+.batch-number-error-message {
+    position: absolute;
+    bottom: 400px; /* Adjust positioning */
+    left: 850px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.vaccine-name-error-message {
+    position: absolute;
+    bottom: 400px; /* Adjust positioning */
+    left: 1040px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.manufacturing-date-error-message {
+    position: absolute;
+    bottom: 320px; /* Adjust positioning */
+    left: 850px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.expiry-date-error-message {
+    position: absolute;
+    bottom: 320px; /* Adjust positioning */
+    left: 1065px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.dosing-info-error-message {
+    position: absolute;
+    bottom: 287px; /* Adjust positioning */
+    left: 1020px;
+    color: red;
+    font-size: 0.8em;
+}

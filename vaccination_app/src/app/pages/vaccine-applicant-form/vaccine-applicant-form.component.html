@@ -1,0 +1,170 @@
+<div class="image1">
+    <img src="\assets\img\vaccination4.png" alt="Vaccination1">
+</div>
+
+<div class="container">
+    <div class="form-container">
+      <h1>Vaccination Registration Form</h1>
+      <form [formGroup]="vaccinationApplicationForm">
+        <!-- Form fields -->
+        <!-- First Name -->
+        <div class="name-container">
+          <div class="name-field">
+            <label for="firstName">First Name:</label><br>
+            <input type="text" id="firstName" formControlName="firstName" required>
+            <span *ngIf="vaccinationApplicationForm.get('firstName').hasError('required') && vaccinationApplicationForm.get('firstName').dirty"class="first-name-error-message">*First Name is required!</span>
+            <!-- <span *ngIf="vaccinationApplicationForm.get('firstName').hasError('required') && vaccinationApplicationForm.get('firstName').dirty" class="error-message">*First Name is required</span> -->
+          </div>
+          <!-- Last Name -->
+          <div class="name-field">
+            <label for="lastName">Last Name:</label><br>
+            <input type="text" id="lastName" formControlName="lastName" required>
+            <span *ngIf="vaccinationApplicationForm.get('lastName').hasError('required') && vaccinationApplicationForm.get('lastName').dirty"class="last-name-error-message">*Last Name is required!</span>
+            <!-- <div *ngIf="vaccinationApplicationForm.get('lastName').invalid && vaccinationApplicationForm.get('lastName').touched" class="error-message">
+              Last Name is required
+            </div> -->
+          </div>
+        </div>
+        <!-- ID Number -->
+        <div class="row">
+          <div class="col">
+            <label for="ICNumber">IC Number:</label><br>
+            <input type="text" id="ICNumber" formControlName="ICNumber" required>
+            <span *ngIf="vaccinationApplicationForm.get('ICNumber').hasError('required') && vaccinationApplicationForm.get('ICNumber').dirty"class="icNumber-error-message">*ID Number is required!</span>
+            <!-- <div *ngIf="vaccinationApplicationForm.get('idNumber').invalid && vaccinationApplicationForm.get('idNumber').touched" class="error-message">
+              ID Number is required
+            </div> -->
+          </div>
+          <!-- Contact Number -->
+          <div class="col">
+            <label for="contactNumber">Contact Number:</label><br>
+            <div class="contact-number-container">
+              <select id="countryCode" formControlName="countryCode" required>
+                <option value="+1">+1 (United States)</option>
+                <option value="+7">+7 (Russia)</option>
+                <option value="+86">+86 (China)</option>
+                <option value="+91">+91 (India)</option>
+                <option value="+44">+44 (United Kingdom)</option>
+                <option value="+81">+81 (Japan)</option>
+                <option value="+49">+49 (Germany)</option>
+                <option value="+82">+82 (South Korea)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+39">+39 (Italy)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+52">+52 (Mexico)</option>
+                <option value="+60">+60 (Malaysia)</option>
+                <option value="+55">+55 (Brazil)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+64">+64 (New Zealand)</option>
+                <option value="+353">+353 (Ireland)</option>
+                <option value="+27">+27 (South Africa)</option>
+              </select>
+              <input type="text" id="contactNumber" formControlName="contactNumber" required>
+              <span *ngIf="vaccinationApplicationForm.get('contactNumber').hasError('required') && vaccinationApplicationForm.get('contactNumber').dirty"class="contact-number-error-message">*Contact Number is required!</span>
+              <!-- <div *ngIf="vaccinationApplicationForm.get('contactNumber').invalid && vaccinationApplicationForm.get('contactNumber').touched" class="error-message">
+                Contact Number is required
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!-- Gender -->
+        <div class="gender">
+          <label for="gender">Gender:</label><br>
+          <select id="gender" formControlName="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select><br><br>
+        </div>
+        <!-- Appointment Date -->
+        <div class="app">
+          <label for="appointmentDate">Appointment Date:</label><br>
+          <input type="date" id="appointmentDate" formControlName="appointmentDate" required>
+          <span *ngIf="vaccinationApplicationForm.get('appointmentDate').invalid && (vaccinationApplicationForm.get('appointmentDate').dirty 
+          || vaccinationApplicationForm.get('appointmentDate').touched)"class="appointment-date-error-message">
+          *Appointment Date is required!
+          </span>
+          <!-- <div *ngIf="vaccinationApplicationForm.get('appointmentDate').invalid && vaccinationApplicationForm.get('appointmentDate').touched" class="error-message">
+            Appointment Date is required
+          </div> -->
+        </div>
+        <!-- Medical Information -->
+        <div class="medinfo">
+          <label for="medicalInfo">Medical Information:</label><br>
+        </div>
+        <br>
+        <div class="medicalCondition">
+          <input type="checkbox" id="none" name="medicalCondition" (change)="toggleCondition('None')">
+          <label for="none">None</label>
+        </div>
+        <div class="medicalCondition">
+          <input type="checkbox" id="diabetes" name="medicalCondition" (change)="toggleCondition('Diabetes')">
+          <label for="diabetes">Diabetes</label>
+        </div>
+        <div class="medicalCondition">
+          <input type="checkbox" id="allergies" name="medicalCondition"  (change)="toggleAllergies()">
+          <label for="allergies">Allergies</label>
+          <input *ngIf="allergiesChecked" type="text" id="allergiesInfo" formControlName="allergiesInfo" placeholder="Specify allergies">
+          <span *ngIf="allergiesChecked && vaccinationApplicationForm.get('allergiesInfo').hasError('required') && vaccinationApplicationForm.get('allergiesInfo').dirty" class="allergies-error-message">*This field is required for allergies!</span>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="heartDisease" name="medicalCondition" (change)="toggleCondition('Heart Disease')">
+            <label for="heartDisease">Heart Disease</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="asthma" name="medicalCondition" (change)="toggleCondition('Asthma')">
+            <label for="asthma">Asthma</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="hypertension" name="medicalCondition" (change)="toggleCondition('Hypertension')">
+            <label for="hypertension">Hypertension</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="autoimmuneDisorders" name="medicalCondition" (change)="toggleCondition('Autoimmune Disorders')">
+            <label for="autoimmuneDisorders">Autoimmune Disorders</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="cancer" name="medicalCondition" (change)="toggleCondition('Cancer')">
+            <label for="cancer">Cancer</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="chronicLungDisease" name="medicalCondition" (change)="toggleCondition('Chronic Lung Disease')">
+            <label for="chronicLungDisease">Chronic Lung Disease</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="kidneyDisease" name="medicalCondition" (change)="toggleCondition('Kidney Disease')">
+            <label for="kidneyDisease">Kidney Disease</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="neurologicalConditions" name="medicalCondition" (change)="toggleCondition('Neurological Conditions')">
+            <label for="neurologicalConditions">Neurological Conditions</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="obesity" name="medicalCondition" (change)="toggleCondition('Obesity')">
+            <label for="obesity">Obesity</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="pregnancy" name="medicalCondition" (change)="toggleCondition('Pregnancy')">
+            <label for="pregnancy">Pregnancy</label>
+        </div>
+        <div class="medicalCondition">
+            <input type="checkbox" id="smoking" name="medicalCondition" (change)="toggleCondition('Smoking')">
+            <label for="smoking">Smoking</label>
+        </div>
+        <div class="medicalCondition">
+          <input type="checkbox" id="other" name="medicalCondition" (change)="toggleOther()">
+          <label for="other">Other</label>
+          <input *ngIf="otherChecked" type="text" id="otherInfo" formControlName="otherInfo" placeholder="Specify other medical conditions">
+          <span *ngIf="otherChecked && vaccinationApplicationForm.get('otherInfo').hasError('required') && vaccinationApplicationForm.get('otherInfo').dirty" class="other-error-message">*This field is required for other medical conditions!</span>
+        </div>
+        <!-- Submit Button -->
+        <div class="form-row">
+          <button [disabled]="vaccinationApplicationForm.invalid" 
+          [class.disabled]="vaccinationApplicationForm.invalid" 
+          (click)="registerForVaccine()" type="submit" class="submit-button">Register For Vaccination
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

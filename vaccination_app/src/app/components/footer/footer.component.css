@@ -1,0 +1,25 @@
+/* Adjust footer positioning */
+footer {
+    background-color: #2c3968; /* Set background color */
+    color: #fff; /* Set text color */
+    padding: 20px; /* Add padding */
+    text-align: center; /* Align content to center */
+    width: 100%; /* Full width */
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Stick to the bottom */
+}
+
+.footer-info p {
+    margin: 10px 0; /* Add margin to paragraphs */
+}
+
+.social-icons img {
+    width: 30px; /* Adjust icon size */
+    margin: 0 5px; /* Add margin between icons */
+}
+
+/* Adjust main content padding to accommodate footer */
+.main-content {
+    padding-bottom: 60px; /* Adjust based on footer height */
+}
+

@@ -1,0 +1,196 @@
+
+.medicalCondition {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 850px; /* Adjust this margin if needed */
+}
+
+.medicalCondition label {
+    margin-right: 20px;
+}
+
+.medicalCondition input[type="text"] {
+    width: 200px; /* Adjust width as needed */
+    border-radius: 5px;
+}
+
+/* Ensure checkboxes are displayed side by side */
+.medicalCondition input[type="checkbox"] {
+    margin-right: 10px; /* Adjust spacing between checkboxes */
+}
+
+@media (max-width: 768px) {
+    .medicalCondition {
+        width: calc(50% - 20px); /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .medicalCondition {
+        width: 100%; /* Full width for smallest screens */
+        margin-right: 0; /* No margin for smallest screens */
+    }
+}
+
+
+.name-container {
+    display: flex;
+    margin-bottom: 20px; 
+    margin-left: 850px;
+}
+
+.name-container input[type="text"] {
+    width: 150px;
+    border-radius: 5px;
+}
+
+.name-field {
+    flex: 1;
+    margin-right: -250px; 
+    border-radius: 5px;
+}
+
+.name-field:last-child {
+    margin-right: 0; 
+}
+
+.row {
+    display: flex;
+    margin-bottom: 20px; 
+    margin-left: 850px;
+    border-radius: 5px;
+}
+
+.col {
+    flex: 1;
+    margin-right: -250px; 
+    border-radius: 5px;
+}
+
+.col:last-child {
+    margin-right: 0; 
+}
+
+.contact-number-container {
+    display: flex;
+    align-items: center;
+    
+}
+
+#countryCode {
+    margin-right: 10px;
+}
+
+#contactNumber {
+    margin-left: 10px; 
+}
+
+.col input[type="text"] {
+    display: block; 
+    margin-top: 5px; 
+    border-radius: 5px;
+}
+
+h1 {
+    margin-left: 870px;
+    margin-top: -850px;
+    margin-bottom: 40px;
+}
+
+.gender {
+    margin-left: 850px;
+}
+
+.app{
+    margin-left: 850px;
+    border-radius: 5px;
+}
+
+.medinfo{
+    margin-left:850px;
+}
+
+.submit-button{
+    margin-left: 1000px;
+    margin-top: 30px;
+    background-color: #6495ED; 
+    color: white; 
+    width: 200px;
+    padding: 10px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    background-color: #002D62; 
+}
+
+
+.image1{
+    margin-left: -200px;
+    margin-top: -150px;
+}
+
+ .first-name-error-message {
+    position: absolute;
+    bottom: 540px; /* Adjust positioning */
+    left: 850px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.last-name-error-message {
+    position: absolute;
+    bottom: 540px; /* Adjust positioning */
+    left: 1120px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.icNumber-error-message {
+    position: absolute;
+    bottom: 465px; /* Adjust positioning */
+    left: 850px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.contact-number-error-message {
+    position: absolute;
+    bottom: 465px; /* Adjust positioning */
+    left: 1300px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.appointment-date-error-message {
+    position: absolute;
+    bottom: 345px; /* Adjust positioning */
+    left: 990px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.allergies-error-message {
+    position: absolute;
+    bottom: 188px; /* Adjust positioning */
+    left: 1170px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.others-error-message {
+    position: absolute;
+    bottom: -340px; /* Adjust positioning */
+    left: 1150px;
+    color: red;
+    font-size: 0.8em;
+}
+
+
+.disabled {
+        opacity: 0.6;
+        cursor:not-allowed;
+    }

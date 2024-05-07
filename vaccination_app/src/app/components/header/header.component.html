@@ -1,0 +1,33 @@
+<img src="\assets\img\VaxiCare-logo.png" alt="Logo" class="logo">
+<div class="navbar">
+    <ul>
+        <ng-container *ngIf="!isLoggedIn || isLoggedIn">
+        <li class="default-button"><a routerLink="#" class="button">Home</a></li>
+        <li class="default-button"><a routerLink="#" class="button">About</a></li>
+        <li class="default-button"><a routerLink="/contact-us" class="button">Contact Us</a></li>
+        <li class="default-button"><a routerLink="#" class="button">How it Works</a></li>
+        </ng-container>
+        <ng-container *ngIf="isLoggedIn">
+            <li class="default-button">
+                <a routerLink="/record-new-vaccine-batch" class="button">Record New Vaccine Batch</a>
+            </li>
+            <li class="default-button">
+                <a routerLink="/view-vaccine-applicant-list" class="button">Vaccine Applicants</a>
+            </li>                      
+        </ng-container>
+        <ng-container *ngIf="!isLoggedIn">
+        <li class="end-button"><a routerLink="/login" class="login-button">Login</a></li>
+        <li class="end-button"><a routerLink="/register" class="register-button">Register</a></li>
+        </ng-container>
+        <ng-container *ngIf="isLoggedIn">
+        <li class="end-button"><a routerLink="/login" (click)="logout()" class="logout-button">Logout</a></li>
+        </ng-container>
+    </ul>
+</div>
+
+
+
+
+
+
+

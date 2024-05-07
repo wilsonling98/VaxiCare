@@ -1,0 +1,59 @@
+<div class="image1">
+    <img src="\assets\img\RecordVaccine.png" alt="Vaccination1">
+</div>
+<div class="container">
+    <div class="form-container">
+        <h1>New Vaccine Batch.</h1>
+        <p><a routerLink="/view-vaccine-batch-list" class="link" (click)="viewAllVaccineBatches()">View all vaccines batch</a></p>
+        <form [formGroup]="vaccineBatchForm">
+            <div class="name-container">
+                <div class="name-field">
+                    <label for="batchNumber">Batch Number:</label>
+                    <br>
+                    <input type="text" id="batchNumber" name="batchNumber" formControlName="batchNumber" required>
+                    <span *ngIf="vaccineBatchForm.get('batchNumber').hasError('required') && vaccineBatchForm.get('batchNumber').dirty" class="batch-number-error-message">*Batch Number is required!</span>
+                </div>
+                <div class="name-field">
+                    <label for="vaccineName">Vaccine Name:</label>
+                    <br>
+                    <input type="text" id="vaccineName" name="vaccineName" formControlName="vaccineName" required>
+                    <span *ngIf="vaccineBatchForm.get('vaccineName').hasError('required') && vaccineBatchForm.get('vaccineName').dirty" class="vaccine-name-error-message">*Vaccine Name is required!</span>
+                </div>
+            </div>
+            <div class="dates"> 
+                <div class="manufacturing">
+                    <label for="manufacturingDate">Manufacturing Date:</label><br>
+                    <input type="date" id="manufacturingDate" name="manufacturingDate" formControlName="manufacturingDate"required><br><br>
+                    <span *ngIf="vaccineBatchForm.get('manufacturingDate').invalid
+                    && (vaccineBatchForm.get('manufacturingDate').dirty 
+                    || vaccineBatchForm.get('manufacturingDate').touched)" 
+                    class="manufacturing-date-error-message">
+                    *Manufacturing Date is required!
+                    </span>
+                </div>
+                <div class="expiry">
+                    <label for="expiryDate">Expiry Date:</label><br>
+                    <input type="date" id="expiryDate" name="expiryDate" formControlName="expiryDate" required><br><br>
+                    <span *ngIf="vaccineBatchForm.get('expiryDate').invalid
+                    && (vaccineBatchForm.get('expiryDate').dirty 
+                    || vaccineBatchForm.get('expiryDate').touched)" 
+                    class="expiry-date-error-message">
+                    *Expiry Date is required!
+                    </span>
+                </div>
+            </div>
+            <div class="dosing">
+                <label for="dosingInfo">Dosing Information:</label>
+                <br>
+                <input type="text" id="dosingInformation" name="dosingInformation" formControlName="dosingInformation" required>
+                <span *ngIf="vaccineBatchForm.get('dosingInformation').hasError('required') 
+                && vaccineBatchForm.get('dosingInformation').dirty" class="dosing-info-error-message">*Dosing Information is required!
+                </span>
+            </div>
+            <div class="form-row">
+                <button [disabled]="vaccineBatchForm.invalid" [class.disabled]="vaccineBatchForm.invalid" (click)="recordNewVaccineBatch()"type="submit" class="submit-button">Record</button>
+            </div>
+        </form>
+    </div>
+</div>
+

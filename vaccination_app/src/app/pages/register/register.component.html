@@ -1,0 +1,70 @@
+<script src="https://kit.fontawesome.com/db44d6a160.js" crossorigin="anonymous"></script>
+<div class="wrapper">
+    <div class="form-wrapper register">
+        <form [formGroup]="registerForm">
+            <h1>Create New Account.</h1>
+            <div class="login_acc">
+              <span>Already a member?<a routerLink="/login" class="login_link">Login</a></span>
+            </div>
+            <div class="user_name">
+              <div class="input-box user_name">
+                <span class="user_icon">
+                  <i class="fa-regular fa-user fa-lg" style="color: #100f0f;"></i>
+              </span>
+              <input type="text" placeholder="First Name" formControlName="firstName" required>
+              <span *ngIf="registerForm.get('firstName').hasError('required') && registerForm.get('firstName').dirty" class="error-message">*First Name is required</span>
+              </div>
+              <div class="input-box user_name">
+                <span class="user_icon">
+                  <i class="fa-regular fa-user fa-lg" style="color: #100f0f;"></i>
+                </span>
+                <input type="text" placeholder="Last Name" formControlName="lastName" required>
+                <span *ngIf="registerForm.get('lastName').hasError('required') && registerForm.get('lastName').dirty" class="error-message">*Last Name is required</span>
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <i class="fa-regular fa-envelope fa-lg" style="color: #1b1c1d;"></i>
+              </span>
+              <input type="email" placeholder="Email" formControlName="email" required>
+              <span *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').dirty"class="error-message">*Email is required</span>
+              <span *ngIf="registerForm.get('email').hasError('email')"class="error-message">*Email is invalid</span>
+              <span *ngIf="emailAlreadyExists" class="error-message">*Email is already in use</span>
+            </div>
+            <div class="input-box">
+              <span class="icon" (click)="togglePasswordVisibility()">
+                <i class="far" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'" [style.color]="showPassword ? '#131415' : '#999'"></i>
+              </span>
+              <input type="{{ showPassword ? 'text' : 'password' }}" id="password" placeholder="Password" name = "password" formControlName="password" required>
+              <span *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').dirty"class="error-message">*Password is required</span>
+            </div>
+            <div class="input-box">
+              <span class="icon" (click)="togglePasswordVisibility()">
+                <i class="far" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'" [style.color]="showPassword ? '#131415' : '#999'"></i>
+              </span>
+                <input input type="{{ showPassword ? 'text' : 'password' }}" id="password" placeholder="Confirm Password" name = "confirmPassword" formControlName="confirmPassword" required>
+                <span *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').dirty"class="error-message">*Confirm Password is required!!</span>
+                <span *ngIf="registerForm.get('confirmPassword').hasError('confirmPasswordValidator')" class="error-message">*Password is not matched!!</span>
+
+            </div>
+            <div class="radio_box">
+              <p>Healthcare Administrator?</p>
+              <span class="error-message">*Select an option for isHA</span>
+              <label>
+                  <input type="radio" formControlName="isHA" name="isHA" [value]="true">
+                  <span>Yes</span>
+              </label>
+              <label>
+                  <input type="radio" formControlName="isHA" name="isHA" [value]="false">
+                  <span>No</span>
+              </label>
+          </div>
+          <button [disabled]="registerForm.invalid || emailAlreadyExists" [class.disabled]="registerForm.invalid || emailAlreadyExists" (click)="register()" class="submit">Register</button>      
+          </form>       
+    </div>
+</div>
+
+<div class="register_pic">
+            <img src="\assets\img\signup.png" alt="register">
+    </div>
+

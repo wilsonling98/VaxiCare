@@ -1,0 +1,29 @@
+<div class="image1">
+    <img src="\assets\img\vaccination7.png" alt="Vaccination1">
+</div>
+
+<div class="container">
+    <div class="form-container">
+      <h1>Your Application.</h1>
+      
+      <ng-container *ngIf="latestApplicantInfo$ | async as applicantInfo">
+        <div class="info-row">
+          <p><strong>First Name:</strong> {{ applicantInfo.firstName }}</p>
+          <p><strong>Last Name:</strong> {{ applicantInfo.lastName }}</p>
+        </div>
+        <div class="info-row">
+          <p><strong>IC Number:</strong> {{ applicantInfo.ICNumber }}</p>
+          <p><strong>Contact Number:</strong> {{ applicantInfo.countryCode }}-{{ applicantInfo.contactNumber }}</p>
+        </div>
+        <div class="info-row">
+          <p><strong>Gender:</strong> {{ applicantInfo.gender }}</p>
+          <p><strong>Appointment Date:</strong> {{ applicantInfo.appointmentDate }}</p>
+        </div>
+        <div class="info-row">
+          <p><strong>Medical Conditions:</strong> {{ applicantInfo.medicalConditions.join(', ') }}</p>
+        </div>
+      </ng-container>
+      <button type="submit" class="submit-button" (click)="goBack()">Go Back Home</button>
+    </div>
+  </div>
+  

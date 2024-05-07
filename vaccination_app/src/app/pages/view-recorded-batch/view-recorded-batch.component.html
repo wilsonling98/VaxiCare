@@ -1,0 +1,25 @@
+<div class="image1">
+    <img src="\assets\img\ViewRecordVaccine.png" alt="Vaccination1">
+</div>
+<div class="container">
+    <div class="form-container">
+        <ng-container *ngIf="latestRecordedBatchInfo$ | async as latestRecordedBatch">
+            <h1>{{ latestRecordedBatch.vaccineName }} Vaccine</h1>
+            <p><a routerLink="/view-vaccine-batch-list" class="link" (click)="viewAllVaccineBatches()">View all vaccines batches</a></p>
+            <div class="info-row">
+                <p><strong>Batch Number:</strong> {{ latestRecordedBatch.batchNumber }}</p>
+                <p><strong>Vaccine Name:</strong> {{ latestRecordedBatch.vaccineName }}</p>
+            </div>
+            <div class="info-row">
+                <p><strong>Manufacturing Date:</strong> {{ latestRecordedBatch.manufacturingDate | date }}</p>
+                <p><strong>Expiry Date:</strong> {{ latestRecordedBatch.expiryDate | date }}</p>
+            </div>
+            <div class="info-row">
+                <p><strong>Dosing Information: </strong> {{ latestRecordedBatch.dosingInformation }}</p>
+            </div>
+        </ng-container>
+    </div>
+    <button type="submit" class="submit-button" (click)="goBack()">Go Back Home</button>
+</div>
+
+

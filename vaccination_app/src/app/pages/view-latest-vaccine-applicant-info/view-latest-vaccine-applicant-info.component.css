@@ -1,0 +1,38 @@
+.info-row{
+    margin-left: 873px;
+    text-align:left;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+
+
+h1 {
+    margin-left: 870px;
+    margin-top: -850px;
+    margin-bottom: 60px;
+}
+
+
+.image1{
+    margin-left: -100px;
+    margin-top: -150px;
+    height: auto;
+    width: 200px;
+}
+
+.submit-button{
+    margin-left: 1000px;
+    margin-top: 30px;
+    background-color: #6495ED; 
+    color: white; 
+    width: 200px;
+    padding: 10px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    background-color: #002D62; 
+}

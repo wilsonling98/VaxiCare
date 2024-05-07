@@ -1,0 +1,13 @@
+
+<div class="vaccine-list">
+    <h1>Vaccine Batches</h1>
+    <div *ngIf="vaccineBatches.length === 0">
+        <p>No vaccine batches available.</p>
+    </div>
+    <div *ngFor="let batch of vaccineBatches" class="vaccine-box" (click)="viewBatchDetails(batch._id)">
+        <h2>{{ batch.vaccineName }}</h2>
+        <p class="created-date">Created: {{ batch.createdAt | date }}</p>
+        <!-- Add any other batch details you want to display -->
+    </div>
+</div>
+

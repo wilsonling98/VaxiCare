@@ -1,0 +1,37 @@
+<div class="image">
+    <img src="\assets\img\vaccine_applicant.jpg" alt="vaccine_applicant">
+</div>
+
+<div class="form_wrapper">
+    <div class="applicant_form">
+        <h1>Vaccine Applicant</h1>
+        
+        <ng-container *ngIf="applicantInfo$ | async as applicantInfo; else loadingInfo">
+            <div class="info-row">
+                <p><strong>First Name:</strong> {{ applicantInfo.firstName }}</p>
+                <br>
+                <p><strong>Last Name:</strong> {{ applicantInfo.lastName }}</p>
+            </div>
+            <br>
+            <div class="info-row">
+                <p><strong>IC Number:</strong> {{ applicantInfo.ICNumber }}</p>
+                <br>
+                <p><strong>Contact Number:</strong> {{ applicantInfo.countryCode }}-{{ applicantInfo.contactNumber }}</p>
+            </div>
+            <br>
+            <div class="info-row">
+                <p><strong>Gender:</strong> {{ applicantInfo.gender }}</p>
+                <br>
+                <p><strong>Appointment Date:</strong> {{ applicantInfo.appointmentDate }}</p>
+            </div>
+            <br>
+            <div class="info-row">
+                <p><strong>Medical Conditions:</strong> {{ applicantInfo.medicalConditions.join(', ') }}</p>
+            </div>
+        </ng-container>
+        <button type="submit" class="submit-button" (click)="confirmVaccinationAppointment()">Confirm Vaccination Appointment</button>
+    </div>
+    <ng-template #loadingInfo>Loading applicant information...</ng-template>
+</div>
+
+

@@ -1,0 +1,23 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<div class="header_text">
+    <h1> Vaccine Applicants</h1>
+</div>
+<div class="search_container">
+    <input type="text" placeholder="Coming Soon..." name="search">
+    <i class='bx bx-search bx-sm'></i>
+</div>
+<div class="list_wrapper">
+    <div class="sort_logo">
+      <span><i class='bx bx-sort'></i>Sort</span>
+    </div>
+    <ul>
+      <li *ngFor="let applicant of vaccineApplicants" [ngStyle]="{'background': applicant.vaccine_appointment_confirmed ? '#f7f4f4' : '#ede9e997'}" (click)="viewApplicantDetails(applicant._id)">
+        <span class="applicant_ICNumber">{{ applicant.ICNumber }}</span>
+        <span class="applicant_name">{{ applicant.firstName }} {{ applicant.lastName }}</span>
+        <i class="bx bxs-calendar-check bx-sm" [ngClass]="{'marked-green': applicant.vaccine_appointment_confirmed}" [ngStyle]="{'color': applicant.vaccine_appointment_confirmed ? '#4ef608' : ''}"></i>
+        <i class="bx bx-check-square bx-sm" (click)="markVaccinationAdministered($event,applicant._id)" [ngStyle]="{'color': applicant.vaccine_appointment_administered ? '#4ef608' : ''}"></i>
+        <!-- Add a hidden input field to store the applicant object ID -->
+        <input type="hidden" [value]="applicant._id" name="applicantId">
+      </li>
+    </ul>
+  </div>
